@@ -1,0 +1,218 @@
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.auth-sidebar {
+  width: 40%;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  color: white;
+}
+
+.auth-sidebar-content {
+  max-width: 400px;
+}
+
+.auth-sidebar h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.auth-sidebar p {
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.auth-main {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: #f5f7ff;
+}
+
+.auth-logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.auth-logo .logo-icon {
+  width: 24px;
+  height: 24px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.auth-logo span {
+  font-weight: 600;
+}
+
+.auth-form-container {
+  max-width: 400px;
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.auth-form-container h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.auth-subtitle {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.auth-github {
+  margin-bottom: 1rem;
+}
+
+.btn-github {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: #24292e;
+  color: white;
+  font-weight: 500;
+}
+
+.btn-github svg {
+  margin-right: 8px;
+}
+
+.btn-github:hover {
+  background-color: #1b1f23;
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  margin: 1.5rem 0;
+  color: #666;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid #ddd;
+}
+
+.auth-divider span {
+  padding: 0 10px;
+}
+
+.auth-form {
+  margin-top: 1.5rem;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.forgot-password {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.auth-footer {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.auth-footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: var(--error-color);
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+}
+
+/* Password requirements */
+.password-requirements {
+  margin: 1rem 0;
+}
+
+.requirement {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.requirement-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-right: 8px;
+  border: 1px solid #ccc;
+  position: relative;
+}
+
+.requirement.met .requirement-icon {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.requirement.met .requirement-icon::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+  }
+  
+  .auth-sidebar, 
+  .auth-main {
+    width: 100%;
+  }
+  
+  .auth-sidebar {
+    padding: 2rem;
+    min-height: 200px;
+  }
+} 

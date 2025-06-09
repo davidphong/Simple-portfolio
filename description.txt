@@ -1,0 +1,69 @@
+# User Portfolio Management
+
+## **Requirements**
+
+- Create a User Portfolio Management App according to the design.
+- By default, users are asked to sign in.
+- On 'Sign In' Page, users can login by email and password.
+- On 'Sign In' Page, users can select the 'forgot password' option and be redirected to the 'Forgot password' page.
+- On 'Forgot Password' page, user can enter their email and get a magic link after selecting the 'Reset Password' button.
+- When users select the magic link, they are redirected to the 'Choose new password' page.
+- On 'Choose new password' page, users can enter a new password with the requirements given in the design.
+- Users can sign up with email and password. Optionally, an email with a magic link can be sent to verify the account.
+- On 'Profile setting' page, logged-in users can update their profile image, job title, name, and bio.
+- On 'Projects setting' page, logged-in users can add new projects with project name, demo URL, repository URL, and description.
+- On 'Projects setting' page, logged-in users can edit added projects.
+- On 'Portfolio' page, users can see the name, job title, bio, and the projects.
+- On 'Portfolio' page, others can send the user an email by selecting the contact button.
+- Deploy the solution.
+
+## **Technical Details**
+
+### **Front-end Development**
+
+1. **Framework**: Use React for building the user interface.
+2. **State Management**: Use a state management tool like Zustand or Redux for managing state.
+3. **Styling**: Use CSS-in-JS libraries like styled-components, tailwind, or traditional CSS for styling.
+
+### **Back-end Development**
+
+1. **Framework**: Use a programing language of your choice to create the server.
+2. **Database**: Use a database of your choice (e.g., MongoDB or PostgreSQL) for storing user data.
+
+### **Authentication**
+
+- **Required**: Users should be able to log in by email and password.
+
+### **Password Reset**
+
+- **Required**: Users should be able to reset their password using a magic link sent to their email.
+
+### **API Integration**
+
+**Email Service API**
+
+You can use an email service API (e.g., SendGrid) to send emails for password reset and account verification.
+
+**Custom API**
+
+- Create User: Endpoint to create a new user account.
+- Update User: Endpoint to update user profile and project details.
+- Get User: Endpoint to fetch user profile and project details.
+- Send Email: Endpoint to send emails for password reset and account verification.
+
+**API Endpoints**
+
+1. **POST /api/user/signup**: Create a new user account.
+2. **POST /api/user/login**: Log in with email and password.
+3. **POST /api/user/forgot-password**: Send a magic link to reset the password.
+4. **POST /api/user/reset-password**: Reset the password using the magic link.
+5. **PUT /api/user/profile**: Update user profile details.
+6. **PUT /api/user/projects**: Add or edit user projects.
+7. **GET /api/user/profile**: Fetch user profile details.
+8. **GET /api/user/projects**: Fetch user projects.
+
+### **Deployment**
+
+1. Front-end: Deploy the React app 
+2. Back-end: Deploy flask python with db mysql
+3. Deploy every thing on docker. 
