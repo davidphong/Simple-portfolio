@@ -46,7 +46,8 @@ services:
   db:
     image: mysql:8.0
     ports:
-      - "3370:3306"
+      - "3370:3370"
+    command: --port=3370
     environment:
       - MYSQL_ROOT_PASSWORD=rootpassword
       - MYSQL_DATABASE=portfolio

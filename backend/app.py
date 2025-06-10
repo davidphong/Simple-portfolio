@@ -23,7 +23,7 @@ app = Flask(__name__)
 
 # Configuration
 app.config['SECRET_KEY'] = 'your-secret-key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://user:password@db/portfolio'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://user:password@db:3370/portfolio'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['JWT_SECRET_KEY'] = 'jwt-secret-key'
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = timedelta(hours=1)
