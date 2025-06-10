@@ -166,37 +166,46 @@ def handle_unprocessable_entity(err):
 @app.route('/api/user/signup', methods=['POST'])
 def signup():
     data = request.json
+    logger.info(f"Received signup request: {data}")
     
-    # Check if email already exists
-    existing_user = User.query.filter_by(email=data['email']).first()
-    if existing_user:
-        return jsonify({'error': 'Email already registered'}), 409
-    
-    # Create new user
-    hashed_password = hash_password(data['password'])
-    new_user = User(
-        email=data['email'],
-        password=hashed_password,
-        name=data.get('name', ''),
-        job_title=data.get('job_title', ''),
-        bio=data.get('bio', '')
-    )
-    
-    db.session.add(new_user)
-    db.session.commit()
-    
-    # Generate access token
-    access_token = create_access_token(identity=new_user.id)
-    
-    return jsonify({
-        'message': 'User created successfully',
-        'token': access_token,
-        'user': {
-            'id': new_user.id,
-            'email': new_user.email,
-            'name': new_user.name
-        }
-    }), 201
+    try:
+        # Check if email already exists
+        existing_user = User.query.filter_by(email=data['email']).first()
+        if existing_user:
+            logger.warning(f"Signup failed: Email {data['email']} already registered")
+            return jsonify({'error': 'Email already registered'}), 409
+        
+        # Create new user
+        hashed_password = hash_password(data['password'])
+        new_user = User(
+            email=data['email'],
+            password=hashed_password,
+            name=data.get('name', ''),
+            job_title=data.get('job_title', ''),
+            bio=data.get('bio', '')
+        )
+        
+        logger.info(f"Creating new user with email: {data['email']}")
+        db.session.add(new_user)
+        db.session.commit()
+        logger.info(f"User created successfully with ID: {new_user.id}")
+        
+        # Generate access token
+        access_token = create_access_token(identity=new_user.id)
+        
+        return jsonify({
+            'message': 'User created successfully',
+            'token': access_token,
+            'user': {
+                'id': new_user.id,
+                'email': new_user.email,
+                'name': new_user.name
+            }
+        }), 201
+    except Exception as e:
+        logger.error(f"Error during signup: {str(e)}")
+        db.session.rollback()
+        return jsonify({'error': f'Signup failed: {str(e)}'}), 500
 
 @app.route('/api/user/login', methods=['POST'])
 def login():
