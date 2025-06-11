@@ -48,7 +48,7 @@ const ProjectsSettings = () => {
     });
     
     if (project.image) {
-      setImagePreview(`${process.env.REACT_APP_API_URL || 'http://localhost:7331'}/uploads/${project.image}`);
+      setImagePreview(`${process.env.REACT_APP_API_URL || '/api'}/uploads/${project.image}`);
     } else {
       setImagePreview(null);
     }
@@ -144,9 +144,9 @@ const ProjectsSettings = () => {
               <div className="project-card" key={project.id}>
                 <div className="project-image">
                   {project.image ? (
-                    <img 
-                      src={`${process.env.REACT_APP_API_URL || 'http://localhost:7331'}/uploads/${project.image}`} 
-                      alt={project.name} 
+                    <img
+                      src={`${process.env.REACT_APP_API_URL || '/api'}/uploads/${project.image}`}
+                      alt={project.name}
                     />
                   ) : (
                     <span>No Image</span>

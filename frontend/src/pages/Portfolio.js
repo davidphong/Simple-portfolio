@@ -83,9 +83,9 @@ const Portfolio = () => {
           <div className="portfolio-profile">
             <div className="portfolio-avatar">
               {portfolio.user.profile_image ? (
-                <img 
-                  src={`${process.env.REACT_APP_API_URL || 'http://localhost:7331'}/uploads/${portfolio.user.profile_image}`} 
-                  alt={portfolio.user.name} 
+                <img
+                  src={`${process.env.REACT_APP_API_URL || '/api'}/uploads/${portfolio.user.profile_image}`}
+                  alt={portfolio.user.name}
                 />
               ) : (
                 portfolio.user.name?.charAt(0) || 'U'
@@ -120,9 +120,9 @@ const Portfolio = () => {
                 <div className="portfolio-project" key={project.id}>
                   <div className="project-image">
                     {project.image ? (
-                      <img 
-                        src={`${process.env.REACT_APP_API_URL || 'http://localhost:7331'}/uploads/${project.image}`} 
-                        alt={project.name} 
+                      <img
+                        src={`${process.env.REACT_APP_API_URL || '/api'}/uploads/${project.image}`}
+                        alt={project.name}
                       />
                     ) : (
                       <div className="project-image-placeholder"></div>

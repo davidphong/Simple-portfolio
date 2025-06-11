@@ -47,7 +47,10 @@ A full-stack web application for developers to create and manage their professio
    ```
 4. Access the application:
    - Frontend: http://localhost:9745
-   - Backend API: http://localhost:7331
+   - Backend API: http://localhost:7331 (or your deployed domain)
+
+If deploying the frontend separately, configure `REACT_APP_API_URL` with your
+API base URL so requests are routed correctly.
 
 ### Development Setup
 
