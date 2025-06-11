@@ -5,7 +5,9 @@ services:
     build:
       context: ./frontend
       args:
-        - REACT_APP_API_URL=http://localhost:7331/api
+        # Point the frontend container to the backend service on the Docker
+        # network so it works in any environment.
+        - REACT_APP_API_URL=http://backend:7331/api
     ports:
       - "9745:9745"
     volumes:
@@ -13,7 +15,8 @@ services:
       - /app/node_modules
     environment:
       - PORT=9745
-      - REACT_APP_API_URL=http://localhost:7331/api
+      # Use the backend service hostname rather than localhost
+      - REACT_APP_API_URL=http://backend:7331/api
     depends_on:
       - backend
     networks:
