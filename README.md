@@ -47,7 +47,11 @@ A full-stack web application for developers to create and manage their professio
    ```
 4. Access the application:
    - Frontend: http://localhost:9745
-   - Backend API: http://localhost:7331
+   - Backend API: http://localhost:7331 (or your deployed domain)
+
+The Docker configuration points the frontend to `http://backend:7331/api` so
+both services can communicate inside the Docker network. If deploying the
+frontend separately, set `REACT_APP_API_URL` to your API base URL.
 
 ### Development Setup
 
