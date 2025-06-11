@@ -5,7 +5,7 @@ services:
     build:
       context: ./frontend
       args:
-        - REACT_APP_API_URL=http://localhost:7332/api
+        - REACT_APP_API_URL=http://localhost:7331/api
     ports:
       - "9745:9745"
     volumes:
@@ -13,7 +13,7 @@ services:
       - /app/node_modules
     environment:
       - PORT=9745
-      - REACT_APP_API_URL=http://localhost:7332/api
+      - REACT_APP_API_URL=http://localhost:7331/api
     depends_on:
       - backend
     networks:
@@ -23,7 +23,7 @@ services:
     build:
       context: ./backend
     ports:
-      - "7332:7331"
+      - "7331:7331"
     volumes:
       - ./backend:/app
       - ./backend/uploads:/app/uploads
