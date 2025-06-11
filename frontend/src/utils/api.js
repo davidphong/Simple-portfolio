@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:7331/api';
+// Base URL for the backend API. When `REACT_APP_API_URL` isn't provided,
+// default to the same host that served the frontend.
+const API_URL = process.env.REACT_APP_API_URL || '/api';
 
 const api = axios.create({
   baseURL: API_URL,
@@ -124,4 +126,5 @@ export const sendContactMessage = (userId, messageData) => {
   return api.post('/contact', { user_id: userId, ...messageData });
 };
 
-export default api; 
+export { API_URL };
+export default api;
